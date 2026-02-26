@@ -3,8 +3,9 @@ FROM oven/bun:1
 WORKDIR /app
 
 # Install requirements
-COPY package*.json ./
+COPY package.json ./
 COPY bun.lock ./
+RUN pwd && ls -la
 RUN bun install
 
 # Copy source code
