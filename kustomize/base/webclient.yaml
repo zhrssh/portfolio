@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: IfNotPresent
           image: portfolio/webclient:latest
           ports:
-            - containerPort: 5173
+            - containerPort: 80
               name: http
 
 ---
@@ -48,4 +48,4 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 5173
+      targetPort: 80

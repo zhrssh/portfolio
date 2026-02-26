@@ -6,7 +6,6 @@ version_settings(constraint='>=0.22.2')
 docker_build(
     'portfolio/webclient',
     context='./src/webclient/',
-    dockerfile='./src/webclient/dev.Dockerfile',
     ignore=['./src/webclient/dist/'],
     live_update=[
         fall_back_on('./src/webclient/vite.config.ts'),
@@ -22,6 +21,6 @@ k8s_yaml(kustomize('./kustomize/dev/'))
 
 k8s_resource(
     'webclient',
-    port_forwards='5173:5173', # Vite port
+    port_forwards='8080:80', # nginx port
     labels=['webclient']
 )
