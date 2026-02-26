@@ -29,6 +29,7 @@ This is the source code of my portfolio found at [URL HERE](#)
    `tilt up`
    - If you're developing the react app, it's good to run `bun run dev` along side `tilt up` so that the plugins are still working.
    - The `tilt up` allows you to build the images automatically to be able to see what it's like in production-like environment.
+   - Access the web server via `http://localhost:8080/`
 
 4. For clean up, run:
 

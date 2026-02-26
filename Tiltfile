@@ -9,7 +9,6 @@ docker_build(
     ignore=['./src/webclient/dist/'],
     live_update=[
         fall_back_on('./src/webclient/vite.config.ts'),
-        sync('./src/webclient/', '/app/'),
         run(
             'bun install',
             trigger=['./src/webclient/package.json', './src/webclient/bun.lock']
@@ -21,6 +20,6 @@ k8s_yaml(kustomize('./kustomize/dev/'))
 
 k8s_resource(
     'webclient',
-    port_forwards='8080:80', # nginx port
+    port_forwards='8080:3000', # bun port
     labels=['webclient']
 )
