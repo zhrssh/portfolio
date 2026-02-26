@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webclient
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webclient
+  template:
+    metadata:
+      labels:
+        app: webclient
+    spec:
+      serviceAccountName: default
+      securityContext:
+        fsGroup: 1001
+        runAsGroup: 1001
+        runAsNonRoot: true
+        runAsUser: 1001
+      containers:
+        - name: webclient
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - all
+            privileged: false
+            readOnlyRootFilesystem: true
+          imagePullPolicy: IfNotPresent
+          image: portfolio/webclient:latest
+          ports:
+            - containerPort: 3000
+              name: http
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webclient
+spec:
+  type: ClusterIP
+  selector:
+    app: webclient
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3000
