@@ -27,3 +27,7 @@ This is the source code of my portfolio found at [URL HERE](#)
 3. From the root directory, run:
 
    `tilt up`
+
+4. For clean up, run:
+
+   `tilt down`
