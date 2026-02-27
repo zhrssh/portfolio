@@ -5,10 +5,12 @@ import {
   Input,
   Menu,
   Pagination,
+  Pill,
   Select,
   Table,
   Text,
 } from "@mantine/core";
+import { modals } from "@mantine/modals";
 import {
   IconCategory,
   IconDotsVertical,
@@ -25,15 +27,35 @@ import {
 import { projects } from "@/lib/data/sample_projects";
 
 export default function Projects() {
+  const openDeleteModal = () =>
+    modals.openConfirmModal({
+      title: "Delete this project",
+      centered: true,
+      children: (
+        <Text size="sm">
+          Are you sure you want to delete this project? This action is
+          irreversible.
+        </Text>
+      ),
+      labels: { confirm: "Delete", cancel: "No, don't delete it" },
+      confirmProps: { color: "red" },
+      onCancel: () => console.log("Cancel"),
+      onConfirm: () => console.log("Confirmed"),
+    });
+
   const rows = projects.map((project) => (
     <Table.Tr key={project.id}>
       <Table.Td>{project.title}</Table.Td>
-      <Table.Td>{project.tag}</Table.Td>
+      <Table.Td>
+        <Pill>{project.tag}</Pill>
+      </Table.Td>
       <Table.Td>{project.description}</Table.Td>
       <Table.Td>
-        {project.tools.map((tool) => (
-          <div>{tool}</div>
-        ))}
+        <Pill.Group>
+          {project.tools.map((tool) => (
+            <Pill key={tool}>{tool}</Pill>
+          ))}
+        </Pill.Group>
       </Table.Td>
       <Table.Td>
         <Anchor fz="sm" href={project.repo_url}>
@@ -66,7 +88,11 @@ export default function Projects() {
             <Menu.Divider />
 
             <Menu.Label>Danger</Menu.Label>
-            <Menu.Item color="red" leftSection={<IconTrash size={16} />}>
+            <Menu.Item
+              color="red"
+              leftSection={<IconTrash size={16} />}
+              onClick={openDeleteModal}
+            >
               Delete
             </Menu.Item>
           </Menu.Dropdown>
