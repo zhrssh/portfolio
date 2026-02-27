@@ -1,0 +1,13 @@
+.root {
+    color: var(--color-white-900);
+
+    &[data-active] {
+        color: var(--color-white-100);
+        background-color: var(--color-jetblack-500);
+    }
+}
+
+.root:hover {
+    color: var(--color-white-100);
+    background-color: var(--color-jetblack-500);
+}

@@ -4,6 +4,7 @@ import {
   CloseButton,
   Input,
   Menu,
+  Pagination,
   Select,
   Table,
   Text,
@@ -20,38 +21,8 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 
-const projects = [
-  {
-    id: 1,
-    title: "Todo App",
-    tag: "hobby",
-    description: "Todo list application",
-    tools: ["React"],
-    repo_url: "https://example.com",
-    website_link: "https://example.com",
-    images: "./data/sample1.jpg",
-  },
-  {
-    id: 2,
-    title: "Weather Dashboard",
-    tag: "utility",
-    description: "Real-time weather tracking dashboard",
-    tools: ["Vue", "OpenWeather API"],
-    repo_url: "https://example.com",
-    website_link: "https://example.com",
-    images: "./data/sample2.jpg",
-  },
-  {
-    id: 3,
-    title: "Chat Platform",
-    tag: "hobby",
-    description: "Simple real-time messaging app",
-    tools: ["Node.js", "Socket.io"],
-    repo_url: "https://example.com",
-    website_link: "https://example.com",
-    images: "./data/sample3.jpg",
-  },
-];
+// NOTE: DEVELOPMENT ONLY
+import { projects } from "@/lib/data/sample_projects";
 
 export default function Projects() {
   const rows = projects.map((project) => (
@@ -61,11 +32,11 @@ export default function Projects() {
       <Table.Td>{project.description}</Table.Td>
       <Table.Td>
         {project.tools.map((tool) => (
-          <p>{tool}</p>
+          <div>{tool}</div>
         ))}
       </Table.Td>
       <Table.Td>
-        <Anchor href={project.repo_url}>
+        <Anchor fz="sm" href={project.repo_url}>
           <div className="flex gap-2">
             <IconExternalLink size={16} />
             {project.repo_url}
@@ -73,14 +44,14 @@ export default function Projects() {
         </Anchor>
       </Table.Td>
       <Table.Td>
-        <Anchor href={project.website_link}>
+        <Anchor fz="sm" href={project.website_link}>
           <div className="flex gap-2">
             <IconExternalLink size={16} />
             {project.website_link}
           </div>
         </Anchor>
       </Table.Td>
-      <Table.Td className="flex justify-end">
+      <Table.Td align="right">
         <Menu>
           <Menu.Target>
             <Button color="dark" variant="transparent">
@@ -105,9 +76,9 @@ export default function Projects() {
   ));
 
   return (
-    <div className="p-4 flex flex-col gap-4">
-      <div className="flex items-center justify-between p-4">
-        <Text component="h1" size="xl" fw={700}>
+    <div className="grow flex flex-col p-8 gap-4 justify-between">
+      <div className="flex items-center justify-between">
+        <Text fz="h1" fw="bold">
           Projects
         </Text>
         <Button size="md" variant="filled" leftSection={<IconPlus size={18} />}>
@@ -146,7 +117,13 @@ export default function Projects() {
           />
         </div>
       </div>
-      <Table verticalSpacing="md" highlightOnHover>
+      <Table
+        style={{
+          flexGrow: 1,
+        }}
+        verticalSpacing="md"
+        highlightOnHover
+      >
         <Table.Thead>
           <Table.Tr>
             <Table.Th>Title</Table.Th>
@@ -160,6 +137,9 @@ export default function Projects() {
         </Table.Thead>
         <Table.Tbody>{rows}</Table.Tbody>
       </Table>
+      <div className="flex justify-center">
+        <Pagination total={10} />
+      </div>
     </div>
   );
 }

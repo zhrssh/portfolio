@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import Header from "@/components/Header";
-import Dashboard from "@/components/Dashboard";
-import Projects from "@/components/Projects";
+import Dashboard from "@/components/admin/Dashboard";
+import Projects from "@/components/admin/Projects";
 
 export const Route = createFileRoute("/admin/projects")({
   component: RouteComponent,
@@ -10,8 +9,7 @@ export const Route = createFileRoute("/admin/projects")({
 
 function RouteComponent() {
   return (
-    <div className="flex flex-col h-screen">
-      <Header />
+    <div className="flex flex-col min-h-screen overflow-y-scroll bg-white-400">
       <Dashboard>
         <Projects />
       </Dashboard>

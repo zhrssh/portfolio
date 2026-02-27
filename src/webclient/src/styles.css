@@ -4,16 +4,52 @@
 
 @import '@mantine/core/styles.layer.css';
 
-body {
-    @apply m-0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+@theme {
+    /* =========================
+     AQUAMARINE
+     ========================= */
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+    --color-aquamarine-50: oklch(96.50% 0.0400 172.56);
+    --color-aquamarine-100: oklch(93.50% 0.0800 172.56);
+    /* original */
+    --color-aquamarine-200: oklch(91.72% 0.1254 172.56);
+    --color-aquamarine-300: oklch(85.00% 0.1650 172.56);
+    --color-aquamarine-400: oklch(78.00% 0.2000 172.56);
+    --color-aquamarine-500: oklch(72.00% 0.2300 172.56);
+    --color-aquamarine-600: oklch(66.00% 0.2450 172.56);
+    --color-aquamarine-700: oklch(60.00% 0.2350 172.56);
+    --color-aquamarine-800: oklch(54.00% 0.2150 172.56);
+    --color-aquamarine-900: oklch(48.00% 0.1900 172.56);
+
+    /* =========================
+     JET BLACK
+     ========================= */
+
+    --color-jetblack-50: oklch(0.98 0.002 228.78);
+    --color-jetblack-100: oklch(0.93 0.004 228.78);
+    --color-jetblack-200: oklch(0.87 0.006 228.78);
+    --color-jetblack-300: oklch(0.75 0.010 228.78);
+    --color-jetblack-400: oklch(0.60 0.015 228.78);
+    --color-jetblack-500: oklch(0.45 0.020 228.78);
+    /* original */
+    --color-jetblack-600: oklch(0.3097 0.0265 228.78);
+    --color-jetblack-700: oklch(0.26 0.024 228.78);
+    --color-jetblack-800: oklch(0.22 0.020 228.78);
+    --color-jetblack-900: oklch(0.18 0.015 228.78);
+
+    /* =========================
+     WHITE
+     ========================= */
+
+    --color-white-50: oklch(0.995 0 0);
+    /* original */
+    --color-white-100: oklch(0.9911 0 0);
+    --color-white-200: oklch(0.965 0.002 240);
+    --color-white-300: oklch(0.94 0.003 240);
+    --color-white-400: oklch(0.90 0.004 240);
+    --color-white-500: oklch(0.85 0.005 240);
+    --color-white-600: oklch(0.80 0.006 240);
+    --color-white-700: oklch(0.75 0.007 240);
+    --color-white-800: oklch(0.70 0.008 240);
+    --color-white-900: oklch(0.65 0.009 240);
 }

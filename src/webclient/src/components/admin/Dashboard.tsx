@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import { NavLink, Stack, Text } from "@mantine/core";
+import { Divider, NavLink, Stack, Text } from "@mantine/core";
 import { IconBriefcase2, IconLogout2 } from "@tabler/icons-react";
+
+import classes from "@/css/common/navlink.module.css";
 
 interface Props {
   children?: ReactNode;
@@ -16,6 +18,7 @@ const navsMain = [
 
 const navsFooter = [
   {
+    c: "red.4",
     href: "/",
     label: <Text size="md">Log Out</Text>,
     leftSection: <IconLogout2 stroke={2} />,
@@ -27,22 +30,28 @@ export default function Dashboard({ children }: Props) {
     /* Main container of dashboard */
     <div className="grow flex">
       {/* Sidebar */}
-      <aside className="flex flex-col w-2xs m-4 p-4 gap-8 border">
-        <Text component="h1" size="xl">
-          LOGO
-        </Text>
+      <aside className="flex flex-col w-2xs m-2 p-8 rounded-lg text-white-100 bg-jetblack-600">
+        <div className="flex items-center justify-center min-h-16">
+          <Text fz="h1" fw="bold">
+            LOGO
+          </Text>
+        </div>
+        <Divider my="md" />
         <div className="grow flex flex-col justify-between">
           <div className="flex flex-col gap-2">
-            <Text component="h2" size="lg">
-              Menu
-            </Text>
+            <Text fz="xs">Menu</Text>
             <Stack>
               {navsMain.map((item, index) => (
                 <NavLink
+                  classNames={{
+                    root: classes.root,
+                  }}
+                  bdrs="md"
                   key={index}
                   href={item.href}
                   label={item.label}
                   leftSection={item.leftSection}
+                  autoContrast
                 />
               ))}
             </Stack>
@@ -50,17 +59,25 @@ export default function Dashboard({ children }: Props) {
           <Stack>
             {navsFooter.map((item, index) => (
               <NavLink
+                c={item.c}
+                classNames={{
+                  root: classes.root,
+                }}
+                bdrs="md"
                 key={index}
                 href={item.href}
                 label={item.label}
                 leftSection={item.leftSection}
+                autoContrast
               />
             ))}
           </Stack>
         </div>
       </aside>
       {/* Main page */}
-      <div className="grow mt-4 mr-4 mb-4 border">{children}</div>
+      <div className="flex grow mt-2 mr-2 mb-2 p-4 bg-white-100 rounded-lg">
+        {children}
+      </div>
     </div>
   );
 }
