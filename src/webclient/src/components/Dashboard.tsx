@@ -22,23 +22,24 @@ const navsFooter = [
   },
 ];
 
-export default function Dashboard({ children, ...props }: Props) {
+export default function Dashboard({ children }: Props) {
   return (
     /* Main container of dashboard */
     <div className="grow flex">
       {/* Sidebar */}
       <aside className="flex flex-col w-2xs m-4 p-4 gap-8 border">
-        <h1>
-          <Text size="xl">LOGO</Text>
-        </h1>
+        <Text component="h1" size="xl">
+          LOGO
+        </Text>
         <div className="grow flex flex-col justify-between">
           <div className="flex flex-col gap-2">
-            <h2>
-              <Text size="lg">Menu</Text>
-            </h2>
+            <Text component="h2" size="lg">
+              Menu
+            </Text>
             <Stack>
               {navsMain.map((item, index) => (
                 <NavLink
+                  key={index}
                   href={item.href}
                   label={item.label}
                   leftSection={item.leftSection}
@@ -49,6 +50,7 @@ export default function Dashboard({ children, ...props }: Props) {
           <Stack>
             {navsFooter.map((item, index) => (
               <NavLink
+                key={index}
                 href={item.href}
                 label={item.label}
                 leftSection={item.leftSection}
@@ -58,7 +60,7 @@ export default function Dashboard({ children, ...props }: Props) {
         </div>
       </aside>
       {/* Main page */}
-      <div {...props}>{children}</div>
+      <div className="grow mt-4 mr-4 mb-4 border">{children}</div>
     </div>
   );
 }
