@@ -69,11 +69,11 @@ const theme = createTheme({
   white: "oklch(0.9911 0 0)",
   fontFamily: "Inter, sans-serif",
   lineHeights: {
-    xs: "1.6",
-    sm: "1.6",
-    md: "1.6",
-    lg: "1.6",
-    xl: "1.6",
+    xs: "1.3",
+    sm: "1.3",
+    md: "1.3",
+    lg: "1.3",
+    xl: "1.3",
   },
   fontSizes: {
     xs: "0.79rem",

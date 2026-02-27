@@ -31,10 +31,20 @@ export default function Dashboard({ children }: Props) {
     <div className="grow flex">
       {/* Sidebar */}
       <aside className="flex flex-col w-2xs m-2 p-8 rounded-lg text-white-100 bg-jetblack-600">
-        <div className="flex items-center justify-center min-h-16">
-          <Text fz="h1" fw="bold">
-            LOGO
-          </Text>
+        <div className="flex gap-4 items-center min-h-16">
+          <img
+            src="/mypicture.png"
+            alt="my picture"
+            className="w-18 h-18 rounded-full shadow-md shadow-jetblack-900"
+          />
+          <div className="flex flex-col justify-center">
+            <Text c="jetblack.3" size="xs">
+              Welcome back,
+            </Text>
+            <Text fz="h3" fw="bold">
+              Zherish!
+            </Text>
+          </div>
         </div>
         <Divider my="md" />
         <div className="grow flex flex-col justify-between">
