@@ -3,8 +3,6 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import { MantineProvider } from "@mantine/core";
 
-import Header from "../components/Header";
-
 import appCss from "../styles.css?url";
 import "@mantine/core/styles.css";
 
@@ -39,10 +37,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <MantineProvider>
-          <Header />
-          {children}
-        </MantineProvider>
+        <MantineProvider>{children}</MantineProvider>
         <TanStackDevtools
           config={{
             position: "bottom-right",
