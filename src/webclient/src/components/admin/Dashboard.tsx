@@ -30,12 +30,12 @@ export default function Dashboard({ children }: Props) {
     /* Main container of dashboard */
     <div className="grow flex">
       {/* Sidebar */}
-      <aside className="flex flex-col w-2xs m-2 p-8 rounded-lg text-white-100 bg-jetblack-600">
+      <aside className="grow flex flex-col min-w-fit max-w-fit m-2 p-8 rounded-lg text-white-100 bg-jetblack-600">
         <div className="flex gap-4 items-center min-h-16">
           <img
             src="/mypicture.png"
             alt="my picture"
-            className="w-18 h-18 rounded-full shadow-md shadow-jetblack-900"
+            className="w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full shadow-md shadow-jetblack-900-18 h-18 rounded-full shadow-md shadow-jetblack-900"
           />
           <div className="flex flex-col justify-center">
             <Text c="jetblack.3" size="xs">
