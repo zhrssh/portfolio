@@ -3,6 +3,7 @@ import { Divider, NavLink, Stack, Text } from "@mantine/core";
 import { IconBriefcase2, IconLogout2 } from "@tabler/icons-react";
 
 import classes from "@/css/common/navlink.module.css";
+import { useLocation } from "@tanstack/react-router";
 
 interface Props {
   children?: ReactNode;
@@ -26,6 +27,8 @@ const navsFooter = [
 ];
 
 export default function Dashboard({ children }: Props) {
+  const location = useLocation();
+
   return (
     /* Main container of dashboard */
     <div className="grow flex">
@@ -62,7 +65,7 @@ export default function Dashboard({ children }: Props) {
                   label={item.label}
                   leftSection={item.leftSection}
                   autoContrast
-                  active={window.location.href.includes(item.href)}
+                  active={location.href === item.href}
                 />
               ))}
             </Stack>
