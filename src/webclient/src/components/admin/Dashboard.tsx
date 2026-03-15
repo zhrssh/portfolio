@@ -62,6 +62,7 @@ export default function Dashboard({ children }: Props) {
                   label={item.label}
                   leftSection={item.leftSection}
                   autoContrast
+                  active={window.location.href.includes(item.href)}
                 />
               ))}
             </Stack>

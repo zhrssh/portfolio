@@ -9,6 +9,7 @@ import {
   Select,
   Table,
   Text,
+  Title,
 } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import {
@@ -104,9 +105,9 @@ export default function Projects() {
   return (
     <div className="grow flex flex-col p-8 gap-4 justify-between">
       <div className="flex items-center justify-between">
-        <Text fz="h1" fw="bold">
+        <Title fz="h1" fw="bold">
           Projects
-        </Text>
+        </Title>
         <Button size="md" variant="filled" leftSection={<IconPlus size={18} />}>
           Add Project
         </Button>
