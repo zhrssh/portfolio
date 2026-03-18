@@ -1,18 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import Dashboard from "@/components/admin/Dashboard";
+import Navbar from "@/components/admin/Navbar";
 import Projects from "@/components/admin/Projects";
+import { AppShell } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 
 export const Route = createFileRoute("/admin/projects")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const [opened, { toggle }] = useDisclosure();
   return (
-    <div className="flex flex-col min-h-screen overflow-y-scroll bg-white-400">
-      <Dashboard>
+    <AppShell
+      navbar={{ width: 300, breakpoint: "sm", collapsed: { mobile: !opened } }}
+      padding="md"
+    >
+      <AppShell.Navbar>
+        <Navbar />
+      </AppShell.Navbar>
+      <AppShell.Main>
         <Projects />
-      </Dashboard>
-    </div>
+      </AppShell.Main>
+    </AppShell>
   );
 }
