@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import { AppShell, Container, Title } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/resume")({
+export const Route = createFileRoute("/about")({
   component: RouteComponent,
 });
 
@@ -14,7 +14,7 @@ function RouteComponent() {
       </AppShell.Header>
       <AppShell.Main>
         <Container fluid>
-          <Title order={1}>Welcome to "/resume"!</Title>
+          <Title order={1}>Welcome to "/about"!</Title>
         </Container>
       </AppShell.Main>
     </AppShell>
