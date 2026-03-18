@@ -61,19 +61,19 @@ export default function Projects() {
         </Pill.Group>
       </Table.Td>
       <Table.Td>
-        <Anchor fz="sm" href={project.repo_url}>
-          <div className="flex gap-2">
+        <Anchor fz="xs" href={project.repo_url}>
+          <Group gap="xs" wrap="nowrap">
             <IconExternalLink size={16} />
             {project.repo_url}
-          </div>
+          </Group>
         </Anchor>
       </Table.Td>
       <Table.Td>
-        <Anchor fz="sm" href={project.website_link}>
-          <div className="flex gap-2">
+        <Anchor fz="xs" href={project.website_link}>
+          <Group gap="xs" wrap="nowrap">
             <IconExternalLink size={16} />
             {project.website_link}
-          </div>
+          </Group>
         </Anchor>
       </Table.Td>
       <Table.Td align="right">
