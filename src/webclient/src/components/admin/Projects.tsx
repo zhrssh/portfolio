@@ -2,6 +2,8 @@ import {
   Anchor,
   Button,
   CloseButton,
+  Flex,
+  Group,
   Input,
   Menu,
   Pagination,
@@ -59,19 +61,19 @@ export default function Projects() {
         </Pill.Group>
       </Table.Td>
       <Table.Td>
-        <Anchor fz="sm" href={project.repo_url}>
-          <div className="flex gap-2">
+        <Anchor fz="xs" href={project.repo_url}>
+          <Group gap="xs" wrap="nowrap">
             <IconExternalLink size={16} />
             {project.repo_url}
-          </div>
+          </Group>
         </Anchor>
       </Table.Td>
       <Table.Td>
-        <Anchor fz="sm" href={project.website_link}>
-          <div className="flex gap-2">
+        <Anchor fz="xs" href={project.website_link}>
+          <Group gap="xs" wrap="nowrap">
             <IconExternalLink size={16} />
             {project.website_link}
-          </div>
+          </Group>
         </Anchor>
       </Table.Td>
       <Table.Td align="right">
@@ -103,31 +105,30 @@ export default function Projects() {
   ));
 
   return (
-    <div className="grow flex flex-col p-8 gap-4 justify-between">
-      <div className="flex items-center justify-between">
+    <Flex direction="column" gap="md" w="100%" p="lg" align="center">
+      <Group justify="space-between" w="100%">
         <Title fz="h1" fw="bold">
           Projects
         </Title>
         <Button size="md" variant="filled" leftSection={<IconPlus size={18} />}>
           Add Project
         </Button>
-      </div>
-      <div className="flex items-center justify-between">
-        <div className="min-w-md">
-          <Input
-            placeholder="Search"
-            leftSection={<IconSearch size={16} />}
-            rightSectionPointerEvents="all"
-            rightSection={
-              <CloseButton
-                aria-label="Clear input"
-                onClick={() => console.log("Clear")}
-                style={{ display: true ? undefined : "none" }}
-              />
-            }
-          />
-        </div>
-        <div className="flex gap-4">
+      </Group>
+      <Group grow justify="space-between" wrap="nowrap" gap="xs" w="100%">
+        <Input
+          placeholder="Search"
+          leftSection={<IconSearch size={16} />}
+          rightSectionPointerEvents="all"
+          rightSection={
+            <CloseButton
+              aria-label="Clear input"
+              onClick={() => console.log("Clear")}
+              style={{ display: true ? undefined : "none" }}
+            />
+          }
+          miw={{ sm: 200, md: 400 }}
+        />
+        <Group grow gap="xs" wrap="nowrap">
           <Select
             data={["hobby", "utility"]}
             leftSectionPointerEvents="none"
@@ -142,31 +143,25 @@ export default function Projects() {
             placeholder="Tool"
             maxDropdownHeight={240}
           />
-        </div>
-      </div>
-      <Table
-        style={{
-          flexGrow: 1,
-        }}
-        verticalSpacing="md"
-        highlightOnHover
-      >
-        <Table.Thead>
-          <Table.Tr>
-            <Table.Th>Title</Table.Th>
-            <Table.Th>Tag</Table.Th>
-            <Table.Th>Description</Table.Th>
-            <Table.Th>Tools</Table.Th>
-            <Table.Th>Repository URL</Table.Th>
-            <Table.Th>Website</Table.Th>
-            <Table.Th />
-          </Table.Tr>
-        </Table.Thead>
-        <Table.Tbody>{rows}</Table.Tbody>
-      </Table>
-      <div className="flex justify-center">
-        <Pagination total={10} />
-      </div>
-    </div>
+        </Group>
+      </Group>
+      <Table.ScrollContainer minWidth={200} w="100%">
+        <Table verticalSpacing="md" highlightOnHover>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Title</Table.Th>
+              <Table.Th>Tag</Table.Th>
+              <Table.Th>Description</Table.Th>
+              <Table.Th>Tools</Table.Th>
+              <Table.Th>Repository URL</Table.Th>
+              <Table.Th>Website</Table.Th>
+              <Table.Th />
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>{rows}</Table.Tbody>
+        </Table>
+      </Table.ScrollContainer>
+      <Pagination total={10} />
+    </Flex>
   );
 }

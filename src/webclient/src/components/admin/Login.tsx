@@ -1,46 +1,48 @@
 import {
-  Anchor,
   Button,
+  Container,
+  Group,
   Paper,
   PasswordInput,
+  Stack,
   Text,
   TextInput,
   Title,
 } from "@mantine/core";
-import { Navigate } from "@tanstack/react-router";
 
 export default function Login() {
   return (
-    <div className="flex flex-col min-h-screen overflow-y-hidden items-center justify-center gap-4">
-      <Paper
-        withBorder
-        shadow="md"
-        radius="md"
-        className="flex flex-col p-8 min-w-[500px] gap-4"
-      >
-        <div className="flex flex-col items-center">
+    <Container
+      size="xs"
+      pos="fixed"
+      top="50%"
+      left="50%"
+      style={{ transform: "translate(-50%, -50%)" }}
+    >
+      <Paper withBorder shadow="md" radius="md" miw={500} p="xl">
+        <Stack gap={0} justify="center" align="center">
           <Title fz="h1" fw="bold">
             Welcome Back!
           </Title>
           <Text>Sign in to the admin dashboard.</Text>
-        </div>
+        </Stack>
 
-        <div className="grow">
-          <TextInput
-            label="Email"
-            placeholder="user@email.com"
-            required
-            mt="sm"
-            radius="md"
-          />
-          <PasswordInput
-            label="Password"
-            placeholder="Your password"
-            required
-            mt="xs"
-            radius="md"
-          />
-          <div className="flex gap-4">
+        <Stack gap="md" pt="lg">
+          <Stack gap="xs">
+            <TextInput
+              label="Email"
+              placeholder="user@email.com"
+              required
+              radius="md"
+            />
+            <PasswordInput
+              label="Password"
+              placeholder="Your password"
+              required
+              radius="md"
+            />
+          </Stack>
+          <Group gap="xs" wrap="nowrap">
             <Button
               component="a"
               href="/"
@@ -60,9 +62,9 @@ export default function Login() {
             >
               Sign in
             </Button>
-          </div>
-        </div>
+          </Group>
+        </Stack>
       </Paper>
-    </div>
+    </Container>
   );
 }
