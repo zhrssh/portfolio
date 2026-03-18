@@ -59,6 +59,7 @@ This file helps Copilot-style agents (and future sessions) understand how to bui
 - TanStack docs: [https://tanstack.com/start/latest]
 - Mantine core components docs: [https://mantine.dev/core/package/]
 - Mantine styling docs: [https://mantine.dev/styles/styles-overview/]
+- Tabler icon resources: [https://tabler.io/icons]
 
 ---
 
