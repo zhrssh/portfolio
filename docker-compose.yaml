@@ -2,9 +2,9 @@
 services:
   web:
     build:
-      context: .
+      context: ./src/webclient/
       dockerfile: Dockerfile
-      target: production
+      target: runner
     image: webclient:latest
     container_name: webclient
     ports:
