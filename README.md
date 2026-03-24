@@ -8,11 +8,11 @@ This is the source code of my portfolio found at [URL HERE](#)
 
 ### Prerequisites
 
-1. Minikube
-2. Docker Engine & Docker CLI
-3. Tilt
+1. Docker Engine & Docker CLI
+2. Minikube (Optional)
+3. Tilt (Optional)
 
-### Setup Steps
+### Developing with Minikube + Tilt
 
 1. Build images:
 
@@ -34,3 +34,18 @@ This is the source code of my portfolio found at [URL HERE](#)
 4. For clean up, run:
 
    `tilt down`
+
+### Developing with Docker Compose
+
+1. Build images:
+
+   `scripts/build-images.sh`
+
+2. Start the application:
+
+   `docker compose up -d`
+   - Access the web server via `http://localhost:3000/`
+
+3. For clean up, run:
+
+   `docker compose down`
