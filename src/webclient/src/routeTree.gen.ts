@@ -9,28 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ResumeRouteImport } from './routes/resume'
-import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminProjectsRouteImport } from './routes/admin/projects'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 
-const ResumeRoute = ResumeRouteImport.update({
-  id: '/resume',
-  path: '/resume',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,88 +31,36 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/projects': typeof ProjectsRoute
-  '/resume': typeof ResumeRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/projects': typeof AdminProjectsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/projects': typeof ProjectsRoute
-  '/resume': typeof ResumeRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/projects': typeof AdminProjectsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/projects': typeof ProjectsRoute
-  '/resume': typeof ResumeRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/projects': typeof AdminProjectsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/projects'
-    | '/resume'
-    | '/admin/login'
-    | '/admin/projects'
+  fullPaths: '/' | '/admin/login' | '/admin/projects'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/projects'
-    | '/resume'
-    | '/admin/login'
-    | '/admin/projects'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/projects'
-    | '/resume'
-    | '/admin/login'
-    | '/admin/projects'
+  to: '/' | '/admin/login' | '/admin/projects'
+  id: '__root__' | '/' | '/admin/login' | '/admin/projects'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ProjectsRoute: typeof ProjectsRoute
-  ResumeRoute: typeof ResumeRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminProjectsRoute: typeof AdminProjectsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/resume': {
-      id: '/resume'
-      path: '/resume'
-      fullPath: '/resume'
-      preLoaderRoute: typeof ResumeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -157,9 +87,6 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ProjectsRoute: ProjectsRoute,
-  ResumeRoute: ResumeRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminProjectsRoute: AdminProjectsRoute,
 }

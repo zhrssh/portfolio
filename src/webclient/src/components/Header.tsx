@@ -8,14 +8,22 @@ export default function Header() {
         <Button variant="transparent" component="a" href="/">
           Home
         </Button>
-        <Button variant="transparent" component="a" href="/about">
+        <Button variant="transparent" component="a" href="#about">
           About
         </Button>
-        <Button variant="transparent" component="a" href="/resume">
+        <Button variant="transparent" component="a" href="#projects">
+          Projects
+        </Button>
+        <Button variant="transparent" component="a" href="#resume">
           Resume
         </Button>
-        <Button variant="transparent" component="a" href="/projects">
-          Projects
+        <Button
+          variant="transparent"
+          component="a"
+          href="https://github.com/zhrssh/portfolio"
+          target="_blank"
+        >
+          Source
         </Button>
       </Group>
       <Group gap="xl">
