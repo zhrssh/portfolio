@@ -1,7 +1,13 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
-import { Anchor, createTheme, MantineProvider } from "@mantine/core";
+import {
+  Anchor,
+  Button,
+  createTheme,
+  Image,
+  MantineProvider,
+} from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 
 import appCss from "../styles.css?url";
@@ -35,6 +41,18 @@ const theme = createTheme({
     Anchor: Anchor.extend({
       defaultProps: {
         c: "blue",
+      },
+    }),
+    Button: Button.extend({
+      defaultProps: {
+        miw: 60,
+        maw: 200,
+        radius: "md",
+      },
+    }),
+    Image: Image.extend({
+      defaultProps: {
+        radius: "md",
       },
     }),
   },

@@ -11,11 +11,11 @@ export default function Header() {
         <Button variant="transparent" component="a" href="#about">
           About
         </Button>
+        <Button variant="transparent" component="a" href="#resume">
+          Services
+        </Button>
         <Button variant="transparent" component="a" href="#projects">
           Projects
-        </Button>
-        <Button variant="transparent" component="a" href="#resume">
-          Resume
         </Button>
         <Button
           variant="transparent"
